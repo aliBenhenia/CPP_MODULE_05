@@ -18,7 +18,7 @@ int main()
         b1.decrement();
         b1.decrement();
         b1.decrement();
-        b1.decrement();
+        b1.decrement(); 
         b1.decrement();
         std :: cout << b1.getGrade() << std::endl;
 
