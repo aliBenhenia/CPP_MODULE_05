@@ -44,7 +44,7 @@ std :: string Bureaucrat :: getName() const
 int Bureaucrat :: getGrade() const
 {
     return (grade);
-}
+} 
 
 void Bureaucrat :: increment()
 {
