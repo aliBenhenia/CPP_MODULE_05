@@ -3,7 +3,7 @@
 
 class Bureaucrat {
 private:
-    std::string name;
+    std::string name; 
     int grade;
 
 public:
