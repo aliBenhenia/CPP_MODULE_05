@@ -1,7 +1,12 @@
+#ifndef FORM_HPP
+#define FORM_HPP
+
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
-class Form 
+ 
+class Bureaucrat;
+class Form
 {
     private :
         const std:: string name;
@@ -29,4 +34,6 @@ class Form
         int get_grade_to_execute();
         void beSigned(const Bureaucrat obj); 
         ~Form();
-};//alibenhenia1@gmail.com  
+};
+
+#endif
