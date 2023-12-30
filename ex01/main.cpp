@@ -4,25 +4,16 @@ int main()
 {
    try
    {
-     Bureaucrat b1("ali", 55);
-     std :: cout << b1<< std::endl;
-     b1.increment();
-     b1.increment();
-     b1.increment();
-     b1.increment();
-     b1.increment();
-     std :: cout << b1 << std::endl;
-     b1.decrement();
-     b1.decrement();
-     b1.decrement();
-     b1.decrement(); 
-     b1.decrement();
-     std :: cout << b1 << std::endl;
-     Bureaucrat b2("nor", 44334);
+      Bureaucrat obj1("ali", 3);
+      Bureaucrat obj2("aya", 2);
+      Form taxForm("test form", 10, 11);
+
+      obj1.signForm(taxForm);
+      obj2.signForm(taxForm);
    }
    catch(const std::exception& e)
    {
-        std::cerr << e.what() << '\n';
+      std:: cout << "Exception : " << e.what() << std :: endl;
    }
     return 0;
 }

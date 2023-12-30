@@ -9,7 +9,7 @@ Form :: Form(const Form &obj):name("none"),grade_to_execute(0),grade_to_sign(0)
 {
      std ::  cout << "copy constructor called" << std::endl;
 }
-Form ::  Form(const std:: string name,  bool is_signed, const int grade_to_sign, const int grade_to_execute):name("none"),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign)
+Form ::  Form(const std:: string name, const int grade_to_sign, const int grade_to_execute):name("none"),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign)
 {
      if (grade_to_execute < 1 || grade_to_sign < 1)
           throw GradeTooHighException();
