@@ -19,7 +19,7 @@ class Form
             public :
                 const char *what()const throw();
         };
-        Form();
+        Form(); 
         Form(const Form &obj);
         Form(const std:: string name,  bool is_signed, const int grade_to_sign, const int grade_to_execute);
         //getters
@@ -29,4 +29,4 @@ class Form
         int get_grade_to_execute();
         void beSigned(const Bureaucrat obj); 
         ~Form();
-};//alibenhenia1@gmail.com
+};//alibenhenia1@gmail.com 
