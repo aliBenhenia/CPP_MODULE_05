@@ -27,6 +27,6 @@ class Form
         bool isSigned();
         int get_grade_to_sign();
         int get_grade_to_execute();
-        void beSigned(const Bureaucrat obj);
+        void beSigned(const Bureaucrat obj); 
         ~Form();
 };//alibenhenia1@gmail.com
