@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
-PresidentialPardonForm :: PresidentialPardonForm()
+PresidentialPardonForm :: PresidentialPardonForm():AForm(get_target(), 25, 5)
 {
     std::cout << "default constructor called " << std::endl;
 }
@@ -18,18 +18,9 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)const
     if (get_is_signed() == 0)
         throw FormNotSignedException();
     if(executor.getGrade() <= get_grade_to_execute())
-    {
-        std::ofstream out_file(get_target() + "_shrubbery");
-        if (out_file.is_open())
-        {
-            out_file << "ASCII trees go here." << std::endl;
-            out_file.close();
-        }
-        else
-            throw my_error();
-    }
+        std::cout << get_target() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     else
-        throw GradeTooHighException();
+        throw GradeTooLowException();
 }
 PresidentialPardonForm :: ~PresidentialPardonForm()
 {

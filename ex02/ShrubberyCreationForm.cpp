@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
-ShrubberyCreationForm :: ShrubberyCreationForm()
+ShrubberyCreationForm :: ShrubberyCreationForm():AForm(get_target(), 145, 137)
 {
     std::cout << "default constructor called " << std::endl;
 }

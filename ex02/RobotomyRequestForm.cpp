@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
-RobotomyRequestForm :: RobotomyRequestForm()
+RobotomyRequestForm :: RobotomyRequestForm():AForm(get_target(), 72, 45)
 {
     std::cout << "default constructor called " << std::endl;
 }
