@@ -32,6 +32,11 @@ class AForm
             public :
                 const char *what()const throw();
         };
+        class my_error:public std::exception
+        {
+            public :
+                const char *what()const throw();
+        };
         AForm(); 
         AForm(const AForm &obj);
         AForm(const std:: string name, const int grade_to_sign, const int grade_to_execute);
@@ -39,8 +44,9 @@ class AForm
         //getters
         const std::string getName();
         bool isSigned();
-        int get_grade_to_sign();
-        int get_grade_to_execute();
+        int get_grade_to_sign()const;
+        const std::string get_target()const;
+        int get_grade_to_execute()const;
         bool get_is_signed()const;
         AForm& operator=(const AForm& other);
         void beSigned(const Bureaucrat obj); 

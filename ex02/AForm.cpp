@@ -26,6 +26,10 @@ const char *AForm::GradeTooLowException:: what() const throw()
 {
     return ("Grade is low High for the Aform");
 }
+const char *AForm::my_error:: what() const throw()
+{
+    return ("Unable to create a file!");
+}
 // getters
 const std::string AForm :: getName()
 {
@@ -35,11 +39,11 @@ bool AForm :: isSigned()
 {
      return (is_signed);
 }
-int AForm :: get_grade_to_sign()
+int AForm :: get_grade_to_sign()const
 {
      return (grade_to_sign);
 }
-int AForm :: get_grade_to_execute()
+int AForm :: get_grade_to_execute()const
 {
      return (grade_to_execute);
 }
@@ -58,6 +62,10 @@ AForm& AForm::operator=(const AForm& other)
 bool AForm::get_is_signed()const
 {
      return (is_signed);
+}
+const std::string AForm::get_target()const
+{
+     return(target);
 }
 AForm :: ~AForm()
 {

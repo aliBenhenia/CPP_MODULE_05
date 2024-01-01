@@ -124,7 +124,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
         throw FormNotSignedException();
     }
 
-    if (executor.getGrade() <= getExecGrade()) {
+    if (executor.getGrade() <= getExecGrade()) 
+    {
         std::ofstream outFile(getTarget() + "_shrubbery");
         if (outFile.is_open()) {
             outFile << "ASCII trees go here." << std::endl;
@@ -132,7 +133,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
         } else {
             throw std::runtime_error("Unable to create file for shrubbery creation.");
         }
-    } else {
+    } 
+    else 
+    {
         throw GradeTooLowException();
     }
 }

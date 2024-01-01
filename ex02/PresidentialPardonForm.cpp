@@ -1,19 +1,19 @@
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
-ShrubberyCreationForm :: ShrubberyCreationForm()
+PresidentialPardonForm :: PresidentialPardonForm()
 {
     std::cout << "default constructor called " << std::endl;
 }
-ShrubberyCreationForm :: ShrubberyCreationForm(const ShrubberyCreationForm &obj):AForm(obj)
+PresidentialPardonForm :: PresidentialPardonForm(const PresidentialPardonForm &obj):AForm(obj)
 {
     std::cout << "copy constructor called " << std::endl;
 }
-ShrubberyCreationForm & ShrubberyCreationForm::operator =(const ShrubberyCreationForm &obj)
+PresidentialPardonForm & PresidentialPardonForm::operator =(const PresidentialPardonForm &obj)
 {
    AForm::operator=(obj);
    return (*this);
 }
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
+void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 {
     if (get_is_signed() == 0)
         throw FormNotSignedException();
@@ -31,7 +31,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
     else
         throw GradeTooHighException();
 }
-ShrubberyCreationForm :: ~ShrubberyCreationForm()
+PresidentialPardonForm :: ~PresidentialPardonForm()
 {
     std :: cout << "destructor constructor called " << std::endl;
 }

@@ -8,8 +8,8 @@ class AForm;
 class Bureaucrat
 {
     private :
-         const std::string name;
-            int grade;
+          const std::string name;
+          int grade;
     public :
         class GradeTooHighException:public std::exception
         {
