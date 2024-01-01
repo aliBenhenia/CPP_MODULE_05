@@ -4,12 +4,14 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
  
 class Bureaucrat;
 class AForm
 {
     private :
-        const std:: string name;
+        const std:: string target;
         bool is_signed;
         const int grade_to_sign;
         const int grade_to_execute;
@@ -33,6 +35,7 @@ class AForm
         bool isSigned();
         int get_grade_to_sign();
         int get_grade_to_execute();
+        AForm& operator=(const AForm& other);
         void beSigned(const Bureaucrat obj); 
         ~AForm();
 };

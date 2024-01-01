@@ -1,15 +1,15 @@
 #include "AForm.hpp"
 
-AForm :: AForm():name("none"),grade_to_execute(0),grade_to_sign(0)
+AForm :: AForm():target("none"),grade_to_execute(0),grade_to_sign(0)
 {
      std ::  cout << "default constructor called" << std::endl;
 }
 
-AForm :: AForm(const AForm &obj):name("none"),grade_to_execute(0),grade_to_sign(0)
+AForm :: AForm(const AForm &obj):target("none"),grade_to_execute(0),grade_to_sign(0)
 {
      std ::  cout << "copy constructor called" << std::endl;
 }
-AForm ::  AForm(const std:: string name, const int grade_to_sign, const int grade_to_execute):name("none"),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign)
+AForm ::  AForm(const std:: string name, const int grade_to_sign, const int grade_to_execute):target("none"),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign)
 {
      if (grade_to_execute < 1 || grade_to_sign < 1)
           throw GradeTooHighException();
@@ -29,7 +29,7 @@ const char *AForm::GradeTooLowException:: what() const throw()
 // getters
 const std::string AForm :: getName()
 {
-     return (name);
+     return (target);
 }
 bool AForm :: isSigned()
 {
@@ -50,7 +50,11 @@ void AForm :: beSigned(const Bureaucrat obj)
      else
           throw GradeTooLowException();
 }
-
+AForm& AForm::operator=(const AForm& other)
+{
+     this->is_signed = other.is_signed;
+     return(*this);
+}
 AForm :: ~AForm()
 {
      std ::  cout << "destructor called" << std::endl;
