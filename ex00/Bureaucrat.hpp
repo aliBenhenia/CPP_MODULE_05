@@ -26,11 +26,6 @@ class Bureaucrat
         int getGrade() const;
         void increment();
         void decrement();
-        void print()
-        {
-            std :: cout << name << std :: endl;
-            std :: cout << grade << std :: endl;
-        }
         ~Bureaucrat();
 };
 std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj);
