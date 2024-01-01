@@ -16,6 +16,12 @@ class AForm
         const int grade_to_sign;
         const int grade_to_execute;
     public:
+        class FormNotSignedException : public std::exception {
+        public:
+            const char* what() const throw(){
+                return "Form is not signed.";
+            }
+        };
         class GradeTooHighException:public std::exception
         {
             public :
@@ -35,6 +41,7 @@ class AForm
         bool isSigned();
         int get_grade_to_sign();
         int get_grade_to_execute();
+        bool get_is_signed()const;
         AForm& operator=(const AForm& other);
         void beSigned(const Bureaucrat obj); 
         ~AForm();

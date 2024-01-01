@@ -55,6 +55,10 @@ AForm& AForm::operator=(const AForm& other)
      this->is_signed = other.is_signed;
      return(*this);
 }
+bool AForm::get_is_signed()const
+{
+     return (is_signed);
+}
 AForm :: ~AForm()
 {
      std ::  cout << "destructor called" << std::endl;
