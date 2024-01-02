@@ -4,15 +4,23 @@ ShrubberyCreationForm :: ShrubberyCreationForm():AForm(get_target(), 145, 137)
 {
     std::cout << "default constructor called " << std::endl;
 }
+
+ShrubberyCreationForm :: ShrubberyCreationForm(std::string target):AForm(target, 145, 137)
+{
+    std::cout << "default constructor called " << std::endl;
+}
+
 ShrubberyCreationForm :: ShrubberyCreationForm(const ShrubberyCreationForm &obj):AForm(obj)
 {
     std::cout << "copy constructor called " << std::endl;
 }
+
 ShrubberyCreationForm & ShrubberyCreationForm::operator =(const ShrubberyCreationForm &obj)
 {
    AForm::operator=(obj);
    return (*this);
 }
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 {
     if (get_is_signed() == 0)
@@ -31,6 +39,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
     else
         throw GradeTooHighException();
 }
+
 ShrubberyCreationForm :: ~ShrubberyCreationForm()
 {
     std :: cout << "destructor constructor called " << std::endl;

@@ -4,6 +4,10 @@ RobotomyRequestForm :: RobotomyRequestForm():AForm(get_target(), 72, 45)
 {
     std::cout << "default constructor called " << std::endl;
 }
+RobotomyRequestForm :: RobotomyRequestForm(std::string target):AForm(target, 72, 45)
+{
+    
+}
 RobotomyRequestForm :: RobotomyRequestForm(const RobotomyRequestForm &obj):AForm(obj)
 {
     std::cout << "copy constructor called " << std::endl;

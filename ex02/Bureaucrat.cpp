@@ -5,6 +5,7 @@ Bureaucrat :: Bureaucrat()
 {
     std ::  cout << "default constructor called " << std::endl;
 }
+
 Bureaucrat ::  Bureaucrat(const Bureaucrat &obj):name(obj.name)
 {
     this->grade = obj.grade;
@@ -65,7 +66,7 @@ std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
     return (os);
 }
-void Bureaucrat::signForm(AForm obj)
+void Bureaucrat::signForm(AForm &obj)
 {
     try
     {
