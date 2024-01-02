@@ -26,7 +26,7 @@ Form  *Intern::makeForm(const std::string& formName, const std::string& target)
     else
         std::cout << "Error: Unknown form name : " << formName  << std::endl;
     if (form_)
-         std::cout << "Intern creates " << formName << std::endl;
+        std::cout << "Intern creates " << formName << std::endl;
     return (form_);
 }
 Intern :: ~Intern()
