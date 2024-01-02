@@ -6,7 +6,7 @@ SRC =  main.cpp Bureaucrat.cpp
 OBJ = $(SRC:%.cpp=%.o)
 all : $(NAME)
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ)  -o $(NAME) 
 %.o : %.cpp Bureaucrat.hpp
 	$(CC) $(CFLAGS)  -c $< -o $@
 clean :

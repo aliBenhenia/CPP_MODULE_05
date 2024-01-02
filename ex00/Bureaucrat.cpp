@@ -9,13 +9,13 @@ Bureaucrat ::  Bureaucrat(const Bureaucrat &obj):name(obj.name)
     this->grade = obj.grade;
     std ::  cout << "copy constructor called " << std::endl;
 }
-Bureaucrat ::  Bureaucrat(std::string name, int grade):name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade_):name(name)
 {
-    if (grade < 1)
+    if (grade_ < 1)
         throw GradeTooHighException();
-    else if (grade > 150)
+    else if (grade_ > 150)
         throw GradeTooLowException();
-    this->grade = grade;
+    this->grade = grade_;
 }
 Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
 {
@@ -24,14 +24,14 @@ Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
     std ::  cout << "copy assignement constructor called " << std::endl;
     return (*this);
 }
-// member function 
+
 const char *Bureaucrat::GradeTooHighException:: what() const throw()
 {
     return ("Grade is too High");
 }
 const char *Bureaucrat::GradeTooLowException:: what() const throw()
 {
-    return ("Grade is low High");
+    return ("Grade is too low ");
 }
 
 std :: string Bureaucrat :: getName() const
