@@ -1,24 +1,21 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 int main()
-{
-    // Seed the random number generator for RobotomyRequestForm
-    std::srand(std::time(0));
-
-    Bureaucrat bureaucrat("John Doe", 10);
-    ShrubberyCreationForm shrubberyForm("home");
-    RobotomyRequestForm robotomyForm("target");
-    PresidentialPardonForm pardonForm("criminal");
-
-    bureaucrat.signForm(shrubberyForm);
-    bureaucrat.signForm(robotomyForm);
-    bureaucrat.signForm(pardonForm);
-
-    bureaucrat.executeForm(shrubberyForm);
-    bureaucrat.executeForm(robotomyForm);
-    bureaucrat.executeForm(pardonForm);
+{  
+    try 
+    {
+        Intern someRandomIntern;
+        Form* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        Bureaucrat obj("ali", 55);
+        // rrf->execute(obj);
+    }
+    catch(const std::exception &e)
+    {
+        std::cout << "my expectation is : "<< e.what() << std::endl;
+    }
     return 0;
 }
