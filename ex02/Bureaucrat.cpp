@@ -36,7 +36,7 @@ const char *Bureaucrat::GradeTooHighException:: what() const throw()
 }
 const char *Bureaucrat::GradeTooLowException:: what() const throw()
 {
-    return ("Grade is low High");
+    return ("Grade is low ");
 }
 
 std :: string Bureaucrat :: getName() const

@@ -1,193 +1,126 @@
 #include <iostream>
-#include <fstream>
-#include <cstdlib> // For rand() function
-#include <ctime>   // For seeding rand() function
+#include <stdexcept>
 
 class Bureaucrat;
 
-class AForm {
-private:
-    std::string target;
-    bool signedStatus;
-    const int signGrade;
-    const int execGrade;
-
+class Form {
 public:
-    AForm(std::string target, int signGrade, int execGrade)
-        : target(target), signedStatus(false), signGrade(signGrade), execGrade(execGrade) {}
+    class GradeTooHighException : public std::exception {
+    public:
+        const char* what() const throw() {
+            return "Grade too high";
+        }
+    };
 
-    virtual ~AForm() {}
+    class GradeTooLowException : public std::exception {
+    public:
+        const char* what() const throw() {
+            return "Grade too low";
+        }
+    };
+
+    Form(const std::string& name, int signGrade, int executeGrade)
+        : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade) {
+        if (signGrade < 1 || signGrade > 150 || executeGrade < 1 || executeGrade > 150) {
+            throw GradeTooHighException();
+        }
+    }
+
+    const std::string& getName() const {
+        return name;
+    }
+
+    bool getIsSigned() const {
+        return isSigned;
+    }
+
+    int getSignGrade() const {
+        return signGrade;
+    }
+
+    int getExecuteGrade() const {
+        return executeGrade;
+    }
 
     void beSigned(const Bureaucrat& bureaucrat);
-    virtual void execute(const Bureaucrat& executor) const = 0;
 
-    // Getters
-    std::string getTarget() const { return target; }
-    bool isSigned() const { return signedStatus; }
-    int getSignGrade() const { return signGrade; }
-    int getExecGrade() const { return execGrade; }
-};
+    void signForm(const Bureaucrat& bureaucrat);
 
-class ShrubberyCreationForm : public AForm {
-public:
-    ShrubberyCreationForm(std::string target)
-        : AForm(target, 145, 137) {}
+    friend std::ostream& operator<<(std::ostream& os, const Form& form);
 
-    void execute(const Bureaucrat& executor) const override;
-};
-
-class RobotomyRequestForm : public AForm {
-public:
-    RobotomyRequestForm(std::string target)
-        : AForm(target, 72, 45) {}
-
-    void execute(const Bureaucrat& executor) const override;
-};
-
-class PresidentialPardonForm : public AForm {
-public:
-    PresidentialPardonForm(std::string target)
-        : AForm(target, 25, 5) {}
-
-    void execute(const Bureaucrat& executor) const override;
+private:
+    const std::string name;
+    bool isSigned;
+    const int signGrade;
+    const int executeGrade;
 };
 
 class Bureaucrat {
+public:
+    Bureaucrat(const std::string& name, int grade) : name(name), grade(grade) {
+        if (grade < 1 || grade > 150) {
+            throw Form::GradeTooHighException();
+        }
+    }
+
+    const std::string& getName() const {
+        return name;
+    }
+
+    int getGrade() const {
+        return grade;
+    }
+
+    void signForm(Form& form) const;
+
 private:
-    std::string name;
+    const std::string name;
     int grade;
-
-public:
-    Bureaucrat(std::string name, int grade) : name(name), grade(grade) {}
-
-    void signForm(AForm& form);
-
-    void executeForm(const AForm& form) const;
-    
-    // Getters
-    std::string getName() const { return name; }
-    int getGrade() const { return grade; }
 };
 
-// Define exceptions
-class FormNotSignedException : public std::exception {
-public:
-    const char* what() const throw() {
-        return "Form is not signed.";
-    }
-};
-
-class GradeTooHighException : public std::exception {
-public:
-    const char* what() const throw() {
-        return "Grade is too high.";
-    }
-};
-
-class GradeTooLowException : public std::exception {
-public:
-    const char* what() const throw() {
-        return "Grade is too low.";
-    }
-};
-
-// Implementation of member functions
-
-void AForm::beSigned(const Bureaucrat& bureaucrat) {
+void Form::beSigned(const Bureaucrat& bureaucrat) {
     if (bureaucrat.getGrade() <= signGrade) {
-        signedStatus = true;
-        std::cout << bureaucrat.getName() << " signs " << target << "'s form." << std::endl;
+        isSigned = true;
     } else {
         throw GradeTooLowException();
     }
 }
 
-void Bureaucrat::signForm(AForm& form) {
+void Form::signForm(const Bureaucrat& bureaucrat) {
     try {
-        form.beSigned(*this);
-    } catch (const std::exception& e) {
-        std::cerr << getName() << " cannot sign the form. Reason: " << e.what() << std::endl;
+        beSigned(bureaucrat);
+        std::cout << bureaucrat.getName() << " signed " << name << std::endl;
+    } catch (const GradeTooLowException& e) {
+        std::cout << bureaucrat.getName() << " couldn't sign " << name << " because " << e.what() << std::endl;
     }
 }
 
-void Bureaucrat::executeForm(const AForm& form) const {
-    try {
-        form.execute(*this);
-        std::cout << getName() << " executed " << form.getTarget() << "'s form." << std::endl;
-    } 
-    catch (const std::exception& e)
-    {
-        std::cerr << getName() << " cannot execute the form. Reason: " << e.what() << std::endl;
-    }
+void Bureaucrat::signForm(Form& form) const {
+    form.signForm(*this);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
-    if (!isSigned()) {
-        throw FormNotSignedException();
-    }
-
-    if (executor.getGrade() <= getExecGrade()) 
-    {
-        std::ofstream outFile(getTarget() + "_shrubbery");
-        if (outFile.is_open()) {
-            outFile << "ASCII trees go here." << std::endl;
-            outFile.close();
-        } else {
-            throw std::runtime_error("Unable to create file for shrubbery creation.");
-        }
-    } 
-    else 
-    {
-        throw GradeTooLowException();
-    }
-}
-
-void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
-    if (!isSigned()) {
-        throw FormNotSignedException();
-    }
-
-    if (executor.getGrade() <= getExecGrade()) {
-        std::cout << "Drilling noises..." << std::endl;
-        // Simulate a 50% success rate for robotomy
-        if (rand() % 2 == 0) {
-            std::cout << getTarget() << " has been robotomized successfully!" << std::endl;
-        } else {
-            std::cout << "Robotomy failed for " << getTarget() << "." << std::endl;
-        }
-    } else {
-        throw GradeTooLowException();
-    }
-}
-
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
-    if (!isSigned()) {
-        throw FormNotSignedException();
-    }
-
-    if (executor.getGrade() <= getExecGrade()) {
-        std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-    } else {
-        throw GradeTooLowException();
-    }
+std::ostream& operator<<(std::ostream& os, const Form& form) {
+    os << "Form: " << form.getName()
+       << ", Signed: " << (form.getIsSigned() ? "Yes" : "No")
+       << ", Sign Grade: " << form.getSignGrade()
+       << ", Execute Grade: " << form.getExecuteGrade();
+    return os;
 }
 
 int main() {
-    // Seed the random number generator for RobotomyRequestForm
-    std::srand(std::time(0));
+    try {
+        Bureaucrat bureaucrat("John Doe", 5);
+        Form form("Tax Form", 10, 20);
 
-    Bureaucrat bureaucrat("John Doe", 10);
-    ShrubberyCreationForm shrubberyForm("home");
-    RobotomyRequestForm robotomyForm("target");
-    PresidentialPardonForm pardonForm("criminal");
+        std::cout << "Before signing:\n" << form << std::endl;
 
-    bureaucrat.signForm(shrubberyForm);
-    bureaucrat.signForm(robotomyForm);
-    bureaucrat.signForm(pardonForm);
+        bureaucrat.signForm(form);
 
-    bureaucrat.executeForm(shrubberyForm);
-    bureaucrat.executeForm(robotomyForm);
-    bureaucrat.executeForm(pardonForm);
+        std::cout << "\nAfter signing:\n" << form << std::endl;
+
+    } catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 
     return 0;
 }

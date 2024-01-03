@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
 Bureaucrat :: Bureaucrat()
 {
     std ::  cout << "default constructor called " << std::endl;
@@ -32,7 +31,7 @@ const char *Bureaucrat::GradeTooHighException:: what() const throw()
 }
 const char *Bureaucrat::GradeTooLowException:: what() const throw()
 {
-    return ("Grade is low High");
+    return ("Grade is low ");
 }
 
 std :: string Bureaucrat :: getName() const
@@ -62,6 +61,7 @@ std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
     return (os);
 }
+
 void Bureaucrat::signForm(Form &obj)
 {
     try
@@ -73,7 +73,6 @@ void Bureaucrat::signForm(Form &obj)
     {
         std::cout << name << "CA signed " << obj.getName() << " becuase " << e.what() << std::endl;
     }
-    
 }
 
 Bureaucrat :: ~Bureaucrat()

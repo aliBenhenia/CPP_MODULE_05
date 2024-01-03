@@ -28,5 +28,5 @@ class Bureaucrat
         void decrement();
         ~Bureaucrat();
 };
-std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj);
+std::ostream & operator<<(std:: ostream & os, const Bureaucrat &obj);
 #endif

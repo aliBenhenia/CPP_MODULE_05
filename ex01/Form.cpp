@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form :: Form():grade_to_execute(0),grade_to_sign(0),is_signed(false)
+Form :: Form():name("default"),grade_to_execute(1),grade_to_sign(1),is_signed(false)
 {
      std ::  cout << "default constructor called" << std::endl;
 }
@@ -8,6 +8,7 @@ Form :: Form(const Form &obj):name(obj.name),grade_to_execute(obj.grade_to_execu
 {
      std ::  cout << "copy constructor called" << std::endl;
 }
+
 Form ::  Form(const std:: string name, const int grade_to_sign, const int grade_to_execute):name(name),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign),is_signed(false)
 {
      if (grade_to_execute < 1 || grade_to_sign < 1)
@@ -61,7 +62,8 @@ void Form :: beSigned(const Bureaucrat obj)
      else
           throw GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream& os, const Form& form) {
+std::ostream& operator<<(std::ostream& os, const Form& form) 
+{
     os << "Form: " << form.getName()
        << ", Signed: " << (form.isSigned() ? "Yes" : "No")
        << ", Sign Grade: " << form.get_grade_to_sign()
