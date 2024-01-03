@@ -50,7 +50,7 @@ class AForm
         int get_grade_to_execute()const;
         bool get_is_signed()const;
         AForm& operator=(const AForm& other);
-        void beSigned(const Bureaucrat obj); 
+        void beSigned(const Bureaucrat &obj); 
         ~AForm();
 };
 

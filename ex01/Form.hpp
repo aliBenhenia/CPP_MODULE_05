@@ -33,7 +33,7 @@ class Form
         bool isSigned()const;
         int get_grade_to_sign()const;
         int get_grade_to_execute()const;
-        void beSigned(const Bureaucrat obj);
+        void beSigned(const Bureaucrat &obj);
         ~Form();
 };
 std:: ostream & operator<<(std:: ostream & os, const Form &obj);

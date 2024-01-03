@@ -17,13 +17,13 @@ ShrubberyCreationForm :: ShrubberyCreationForm(const ShrubberyCreationForm &obj)
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator =(const ShrubberyCreationForm &obj)
 {
-   AForm::operator=(obj);
+   (void)obj;
    return (*this);
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 {
-    if (get_is_signed() == 0)
+    if (get_is_signed() == false)
         throw FormNotSignedException();
     if(executor.getGrade() <= get_grade_to_execute())
     {

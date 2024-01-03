@@ -25,14 +25,14 @@ Form &Form :: operator =(const Form &obj)
     return (*this);
 }
 
-// member function 
 const char *Form::GradeTooHighException:: what() const throw()
 {
     return ("Grade is too High for the form");
 }
+
 const char *Form::GradeTooLowException:: what() const throw()
 {
-    return ("Grade is low High for the form");
+    return ("Grade is too low for the form");
 }
 // getters
 const std::string Form :: getName()const
@@ -55,13 +55,14 @@ int Form :: get_grade_to_execute()const
      return (grade_to_execute);
 }
 
-void Form :: beSigned(const Bureaucrat obj) 
+void Form :: beSigned(const Bureaucrat &obj) 
 {
      if (obj.getGrade() <= grade_to_sign)
           is_signed = true;
      else
           throw GradeTooLowException();
 }
+
 std::ostream& operator<<(std::ostream& os, const Form& form) 
 {
     os << "Form: " << form.getName()

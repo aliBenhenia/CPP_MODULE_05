@@ -14,7 +14,7 @@ PresidentialPardonForm :: PresidentialPardonForm(const PresidentialPardonForm &o
 }
 PresidentialPardonForm & PresidentialPardonForm::operator =(const PresidentialPardonForm &obj)
 {
-   AForm::operator=(obj);
+   (void)obj;
    return (*this);
 }
 void PresidentialPardonForm::execute(Bureaucrat const & executor)const

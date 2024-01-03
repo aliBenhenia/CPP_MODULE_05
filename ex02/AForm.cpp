@@ -48,7 +48,7 @@ int AForm :: get_grade_to_execute()const
 {
      return (grade_to_execute);
 }
-void AForm :: beSigned(const Bureaucrat obj) 
+void AForm :: beSigned(const Bureaucrat &obj) 
 {
      if (obj.getGrade() <= grade_to_sign)
           is_signed = true;

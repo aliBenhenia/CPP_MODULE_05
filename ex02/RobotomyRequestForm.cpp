@@ -14,7 +14,7 @@ RobotomyRequestForm :: RobotomyRequestForm(const RobotomyRequestForm &obj):AForm
 }
 RobotomyRequestForm & RobotomyRequestForm::operator =(const RobotomyRequestForm &obj)
 {
-   AForm::operator=(obj);
+   (void)obj;
    return (*this);
 }
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const

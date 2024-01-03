@@ -29,15 +29,17 @@ const char *Bureaucrat::GradeTooHighException:: what() const throw()
 {
     return ("Grade is too High");
 }
+
 const char *Bureaucrat::GradeTooLowException:: what() const throw()
 {
-    return ("Grade is low ");
+    return ("Grade is too low ");
 }
 
 std :: string Bureaucrat :: getName() const
 {
     return (name);
 }
+
 int Bureaucrat :: getGrade() const
 {
     return (grade);
@@ -71,7 +73,7 @@ void Bureaucrat::signForm(Form &obj)
     }
     catch(const Form :: GradeTooLowException &e)
     {
-        std::cout << name << "CA signed " << obj.getName() << " becuase " << e.what() << std::endl;
+        std::cout << name << "couldn’t sign " << obj.getName() << " becuase " << e.what() << std::endl;
     }
 }
 
