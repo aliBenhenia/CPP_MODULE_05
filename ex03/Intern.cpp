@@ -9,11 +9,13 @@ Intern :: Intern(const Intern &obj)
 {
     std::cout << "copy constructor (Intern)" << std::endl;
 }
+
 Intern &Intern:: operator=(const Intern &obj)
 {
     std::cout << "assignement operator (Intern)" << std::endl;
     return (*this);
 }
+
 Form  *Intern::makeForm(const std::string& formName, const std::string& target)
 {
     Form *form_ = NULL;
@@ -29,6 +31,7 @@ Form  *Intern::makeForm(const std::string& formName, const std::string& target)
         std::cout << "Intern creates " << formName << std::endl;
     return (form_);
 }
+
 Intern :: ~Intern()
 {
     std::cout << "destructor (Intern)" << std::endl;

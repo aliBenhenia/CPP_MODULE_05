@@ -20,8 +20,9 @@ int main()
         // b1.decrement();
         // std :: cout << b1 << std::endl;
 
-        Bureaucrat t1("aa", 0);
- 
+        Bureaucrat t1("aa", 3);
+        t1.increment();
+        std::cout << t1.getGrade()<< std::endl;
        
    }
    catch(const std::exception& e)

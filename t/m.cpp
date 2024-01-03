@@ -114,7 +114,9 @@ void Bureaucrat::executeForm(const AForm& form) const {
     try {
         form.execute(*this);
         std::cout << getName() << " executed " << form.getTarget() << "'s form." << std::endl;
-    } catch (const std::exception& e) {
+    } 
+    catch (const std::exception& e)
+    {
         std::cerr << getName() << " cannot execute the form. Reason: " << e.what() << std::endl;
     }
 }

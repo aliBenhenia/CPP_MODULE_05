@@ -16,7 +16,7 @@ class Form
     public:
         class GradeTooHighException:public std::exception
         {
-            public :
+            public:
                 const char *what()const throw();
         };
         class GradeTooLowException:public std::exception
@@ -26,14 +26,16 @@ class Form
         };
         Form(); 
         Form(const Form &obj);
-        Form(const std:: string name, const int grade_to_sign, const int grade_to_execute);
+        Form(const std::string name, const int grade_to_sign, const int grade_to_execute);
+        Form & operator =(const Form &obj);
         //getters
-        const std::string getName();
-        bool isSigned();
-        int get_grade_to_sign();
-        int get_grade_to_execute();
-        void beSigned(const Bureaucrat obj); 
+        const std::string getName()const;
+        bool isSigned()const;
+        int get_grade_to_sign()const;
+        int get_grade_to_execute()const;
+        void beSigned(const Bureaucrat obj);
         ~Form();
 };
+std:: ostream & operator<<(std:: ostream & os, const Form &obj);
 
 #endif
