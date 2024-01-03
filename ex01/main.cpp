@@ -10,6 +10,7 @@ int main()
 
       obj1.signForm(taxForm);
       obj2.signForm(taxForm);
+      std::cout<<taxForm<<"\n";
    }
    catch(const std::exception& e)
    {

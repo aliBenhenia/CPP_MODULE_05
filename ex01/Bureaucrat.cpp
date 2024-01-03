@@ -62,7 +62,7 @@ std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
     return (os);
 }
-void Bureaucrat::signForm(Form obj)
+void Bureaucrat::signForm(Form &obj)
 {
     try
     {

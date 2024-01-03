@@ -29,7 +29,7 @@ class Bureaucrat
         int getGrade() const;
         void increment();
         void decrement();
-        void signForm(Form obj);
+        void signForm(Form &obj);
         ~Bureaucrat();
 };
 std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj);
