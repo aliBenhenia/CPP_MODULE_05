@@ -51,7 +51,7 @@ class Form
         bool get_is_signed()const;
         Form& operator=(const Form& other);
         void beSigned(const Bureaucrat obj); 
-        ~Form();
+        virtual ~Form();
 };
 
 #endif

@@ -43,6 +43,10 @@ Form  *Intern::makeForm(const std::string& formName, const std::string& target)
             delete data[i].object;
         i++;
     }
+    if (form_ != NULL)
+        std::cout << "Intern creates " << formName << std::endl;
+    else
+        std::cout << "Error: Unknown form name : " << formName  << std::endl;
     return (form_);
 }
 
