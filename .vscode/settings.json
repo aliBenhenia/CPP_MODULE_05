@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "exception": "cpp",
+        "iostream": "cpp",
+        "__config": "cpp"
+    }
+}
