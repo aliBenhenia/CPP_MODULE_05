@@ -5,7 +5,7 @@
 
 int main()
 {
-    // Seed the random number generator for RobotomyRequestForm
+
     std::srand(std::time(0));
 
     Bureaucrat bureaucrat("John Doe", 10);

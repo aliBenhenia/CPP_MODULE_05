@@ -36,12 +36,12 @@ const char *AForm::my_error:: what() const throw()
 }
 
 // getters
-const std::string AForm :: getName()
+const std::string AForm :: getName()const
 {
      return (target);
 }
 
-bool AForm :: isSigned()
+bool AForm :: isSigned()const
 {
      return (is_signed);
 }

@@ -17,6 +17,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator =(const RobotomyRequestForm 
    (void)obj;
    return (*this);
 }
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 {
     if (get_is_signed() == 0)
@@ -32,7 +33,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
     else
         throw GradeTooLowException();
 }
+
 RobotomyRequestForm :: ~RobotomyRequestForm()
 {
-    std :: cout << "destructor constructor called " << std::endl;
+    std::cout << "destructor constructor called " << std::endl;
 }

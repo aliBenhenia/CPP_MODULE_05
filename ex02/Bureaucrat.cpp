@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
 Bureaucrat :: Bureaucrat()
 {
     std ::  cout << "default constructor called " << std::endl;
@@ -9,9 +8,9 @@ Bureaucrat :: Bureaucrat()
 Bureaucrat ::  Bureaucrat(const Bureaucrat &obj):name(obj.name)
 {
     this->grade = obj.grade;
-    // this->name = obj.name;
     std ::  cout << "copy constructor called " << std::endl;
 }
+
 Bureaucrat ::  Bureaucrat(std::string name, int grade):name(name)
 {
     if (grade < 1)
@@ -19,17 +18,16 @@ Bureaucrat ::  Bureaucrat(std::string name, int grade):name(name)
     else if (grade > 150)
         throw GradeTooLowException();
     this->grade = grade;
-    // this->name =  name;
 }
+
 Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
 {
     Bureaucrat ob(obj.name, obj.grade);
-    // this->name = obj.name;
     this->grade = obj.grade;
     std ::  cout << "copy assignement constructor called " << std::endl;
     return (*this);
 }
-// member function
+
 const char *Bureaucrat::GradeTooHighException:: what() const throw()
 {
     return ("Grade is too High");
@@ -43,6 +41,7 @@ std :: string Bureaucrat :: getName() const
 {
     return (name);
 }
+
 int Bureaucrat :: getGrade() const
 {
     return (grade);
@@ -54,6 +53,7 @@ void Bureaucrat :: increment()
         throw GradeTooHighException();
     grade--;
 }
+
 void Bureaucrat :: decrement()
 {
     if (grade + 1 > 150)
@@ -66,6 +66,7 @@ std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
     return (os);
 }
+
 void Bureaucrat::signForm(AForm &obj)
 {
     try
@@ -77,15 +78,15 @@ void Bureaucrat::signForm(AForm &obj)
     {
         std::cout << name << "CA signed " << obj.getName() << " becuase " << e.what() << std::endl;
     }
-    
 }
+
 void Bureaucrat::executeForm(AForm const & form)
 {
     try 
     {
         form.execute(*this);
         std::cout << getName() << " executed " << form.get_target() << "'s form." << std::endl;
-    } 
+    }
     catch (const std::exception& e) 
     {
         std::cerr << getName() << " cannot execute the form. Reason: " << e.what() << std::endl;

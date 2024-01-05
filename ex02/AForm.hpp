@@ -16,8 +16,9 @@ class AForm
         const int grade_to_sign;
         const int grade_to_execute;
     public:
-        class FormNotSignedException : public std::exception {
-        public:
+        class FormNotSignedException : public std::exception 
+        {
+         public:
             const char* what() const throw(){
                 return "Form is not signed.";
             }
@@ -40,11 +41,10 @@ class AForm
         AForm(); 
         AForm(std::string target, int grade_to_sign, int grade_to_execute); 
         AForm(const AForm &obj);
-        // AForm(const std:: string target, const int grade_to_sign, const int grade_to_execute);
         virtual void execute(Bureaucrat const & executor) const = 0;
         //getters
-        const std::string getName();
-        bool isSigned();
+        const std::string getName()const;
+        bool isSigned()const;
         int get_grade_to_sign()const;
         const std::string get_target()const;
         int get_grade_to_execute()const;
