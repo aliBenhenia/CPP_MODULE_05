@@ -41,7 +41,7 @@ class AForm
         AForm(std::string target, int grade_to_sign, int grade_to_execute); 
         AForm(const AForm &obj);
         // AForm(const std:: string target, const int grade_to_sign, const int grade_to_execute);
-        virtual void execute(Bureaucrat const & executor) const = 0; 
+        virtual void execute(Bureaucrat const & executor) const = 0;
         //getters
         const std::string getName();
         bool isSigned();

@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
+
 ShrubberyCreationForm :: ShrubberyCreationForm():AForm(get_target(), 145, 137)
 {
     std::cout << "default constructor called " << std::endl;
@@ -7,7 +8,7 @@ ShrubberyCreationForm :: ShrubberyCreationForm():AForm(get_target(), 145, 137)
 
 ShrubberyCreationForm :: ShrubberyCreationForm(std::string target):AForm(target, 145, 137)
 {
-    std::cout << "default constructor called " << std::endl;
+    std::cout << "parameterized constructor called " << std::endl;
 }
 
 ShrubberyCreationForm :: ShrubberyCreationForm(const ShrubberyCreationForm &obj):AForm(obj)
@@ -30,7 +31,12 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
         std::ofstream out_file(get_target() + "_shrubbery");
         if (out_file.is_open())
         {
-            out_file << "ASCII trees go here." << std::endl;
+            out_file << "       || " << std::endl;
+            out_file << "      |||| " << std::endl;
+            out_file << "    |||||||||||" << std::endl;
+            out_file << "   |||||||||||||" << std::endl;
+            out_file << "  ||||||||||||||||" << std::endl;
+            out_file << "||||||||||||||||||||" << std::endl;
             out_file.close();
         }
         else
