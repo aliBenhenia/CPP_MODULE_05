@@ -8,6 +8,12 @@
 
 class Intern
 {
+    private:
+        typedef struct my_form
+        {
+            std:: string name;
+            Form *object;
+        }t_my_form;
     public:
         Intern();
         Intern(const Intern &obj);
