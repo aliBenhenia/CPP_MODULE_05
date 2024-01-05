@@ -5,6 +5,7 @@ Bureaucrat :: Bureaucrat()
     std ::  cout << "default constructor called " << std::endl;
 }
 
+
 Bureaucrat ::  Bureaucrat(const Bureaucrat &obj):name(obj.name)
 {
     this->grade = obj.grade;
@@ -23,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade_):name(name)
 Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
 {
     this->grade = obj.grade;
-    std ::  cout << " assignement constructor called " << std::endl;
+    std::cout << "assignement operator called" << std::endl;
     return (*this);
 }
 
@@ -43,12 +44,14 @@ int Bureaucrat :: getGrade() const
 {
     return (grade);
 }
+
 void Bureaucrat :: increment()
 {
     if (grade <= 1)
         throw GradeTooHighException();
     grade--;
 }
+
 void Bureaucrat :: decrement()
 {
     if (grade  >= 150)
@@ -56,7 +59,7 @@ void Bureaucrat :: decrement()
     grade++;
 }
 
-std:: ostream & operator<<(std:: ostream & os, const Bureaucrat &obj) 
+std::ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
 {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
     return (os);
