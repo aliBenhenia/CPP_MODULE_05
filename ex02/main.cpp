@@ -5,9 +5,6 @@
 
 int main()
 {
-
-    std::srand(std::time(0));
-
     Bureaucrat bureaucrat("John Doe", 10);
     ShrubberyCreationForm shrubberyForm("home");
     RobotomyRequestForm robotomyForm("target");

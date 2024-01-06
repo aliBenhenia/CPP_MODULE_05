@@ -16,7 +16,7 @@ Intern &Intern:: operator=(const Intern &obj)
     return (*this);
 }
 
-Form  *Intern::makeForm(const std::string& formName, const std::string& target)
+Form  *Intern::makeForm(std::string formName, const std::string target)
 {
     Form *form_ = NULL;
     int i = 0;

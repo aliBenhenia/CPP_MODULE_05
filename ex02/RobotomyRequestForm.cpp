@@ -20,6 +20,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator =(const RobotomyRequestForm 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 {
+    std::srand(std::time(0));
     if (get_is_signed() == 0)
         throw FormNotSignedException();
     if(executor.getGrade() <= get_grade_to_execute())
@@ -36,5 +37,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 
 RobotomyRequestForm :: ~RobotomyRequestForm()
 {
-    std::cout << "destructor constructor called " << std::endl;
+    std::cout << "destructor  called " << std::endl;
 }

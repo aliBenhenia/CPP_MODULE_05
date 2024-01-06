@@ -60,13 +60,24 @@ Form& Form::operator=(const Form& other)
      this->is_signed = other.is_signed;
      return(*this);
 }
+
 bool Form::get_is_signed()const
 {
      return (is_signed);
 }
+
 const std::string Form::get_target()const
 {
      return(target);
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& form) 
+{
+    os << "Form: " << form.get_target()
+       << ", Signed: " << (form.get_is_signed() ? "Yes" : "No")
+       << ", Sign Grade: " << form.get_grade_to_sign()
+       << ", Execute Grade: " << form.get_grade_to_execute();
+    return os;
 }
 Form :: ~Form()
 {

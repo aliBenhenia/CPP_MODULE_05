@@ -40,9 +40,7 @@ class Form
         Form(); 
         Form(std::string target, int grade_to_sign, int grade_to_execute); 
         Form(const Form &obj);
-        // Form(const std:: string target, const int grade_to_sign, const int grade_to_execute);
         virtual void execute(Bureaucrat const & executor) const = 0;
-        //getters
         const std::string getName();
         bool isSigned();
         int get_grade_to_sign()const;
@@ -53,5 +51,6 @@ class Form
         void beSigned(const Bureaucrat obj); 
         virtual ~Form();
 };
+std:: ostream & operator<<(std:: ostream & os, const Form &obj);
 
 #endif

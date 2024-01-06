@@ -28,5 +28,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 }
 PresidentialPardonForm :: ~PresidentialPardonForm()
 {
-    std :: cout << "destructor constructor called " << std::endl;
+    std :: cout << "destructor  called " << std::endl;
 }
