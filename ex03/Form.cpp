@@ -18,7 +18,7 @@ Form ::  Form(const std:: string target, const int grade_to_sign, const int grad
      std ::  cout << "parameter constructor called" << std::endl;
 }
 
-// member function 
+
 const char *Form::GradeTooHighException:: what() const throw()
 {
     return ("Grade is too High for the form");
@@ -31,7 +31,7 @@ const char *Form::my_error:: what() const throw()
 {
     return ("Unable to create a file!");
 }
-// getters
+
 const std::string Form :: getName()
 {
      return (target);
