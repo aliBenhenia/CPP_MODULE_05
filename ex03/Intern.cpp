@@ -20,16 +20,6 @@ Form  *Intern::makeForm(const std::string& formName, const std::string& target)
 {
     Form *form_ = NULL;
     int i = 0;
-    //  if (!formName.compare("shrubbery creation"))
-    //     form_ = new ShrubberyCreationForm(target);
-    // else if (!formName.compare("robotomy request"))
-    //     form_ = new RobotomyRequestForm(target);
-    // else if (!formName.compare("presidential pardon"))
-    //     form_ = new PresidentialPardonForm(target);
-    // else
-    //     std::cout << "Error: Unknown form name : " << formName  << std::endl;
-    // if (form_)
-    //     std::cout << "Intern creates " << formName << std::endl;
     t_my_form data[3] = {
         {"shrubbery creation",new ShrubberyCreationForm(target)},
         {"robotomy request",new RobotomyRequestForm(target)},
