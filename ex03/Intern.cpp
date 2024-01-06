@@ -2,19 +2,19 @@
 
 Intern :: Intern()
 {
-    std::cout << "default constructor (Intern)" << std::endl;
+    // std::cout << "default constructor (Intern)" << std::endl;
 }
 
 Intern :: Intern(const Intern &obj)
 {
     (void)obj;
-    std::cout << "copy constructor (Intern)" << std::endl;
+    // std::cout << "copy constructor (Intern)" << std::endl;
 }
 
 Intern &Intern:: operator=(const Intern &obj)
 {
     (void)obj;
-    std::cout << "assignement operator (Intern)" << std::endl;
+    // std::cout << "assignement operator (Intern)" << std::endl;
     return (*this);
 }
 
@@ -44,5 +44,5 @@ Form  *Intern::makeForm(std::string formName, const std::string target)
 
 Intern :: ~Intern()
 {
-    std::cout << "destructor (Intern)" << std::endl;
+    // std::cout << "destructor (Intern)" << std::endl;
 }

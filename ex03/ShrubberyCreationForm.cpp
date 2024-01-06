@@ -2,17 +2,17 @@
 #include "Form.hpp"
 ShrubberyCreationForm :: ShrubberyCreationForm():Form(get_target(), 145, 137)
 {
-    std::cout << "default constructor called " << std::endl;
+    // std::cout << "default constructor called " << std::endl;
 }
 
 ShrubberyCreationForm :: ShrubberyCreationForm(std::string target):Form(target, 145, 137)
 {
-    std::cout << "default constructor called " << std::endl;
+    // std::cout << "default constructor called " << std::endl;
 }
 
 ShrubberyCreationForm :: ShrubberyCreationForm(const ShrubberyCreationForm &obj):Form(obj)
 {
-    std::cout << "copy constructor called " << std::endl;
+    // std::cout << "copy constructor called " << std::endl;
 }
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator =(const ShrubberyCreationForm &obj)
@@ -42,5 +42,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 
 ShrubberyCreationForm :: ~ShrubberyCreationForm()
 {
-    std :: cout << "destructor  called " << std::endl;
+    // std :: cout << "destructor called " << std::endl;
 }

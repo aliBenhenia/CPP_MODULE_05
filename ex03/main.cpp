@@ -3,14 +3,8 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-
-void dd()
-{
-	system("leaks fixed");
-}
-
 int main()
-{//atexit(dd);
+{
 	Intern ob1;
 	Intern ob2;
 	Intern ob3;
