@@ -5,17 +5,25 @@
 
 int main()
 {
-    Bureaucrat bureaucrat("John Doe", 10);
-    ShrubberyCreationForm shrubberyForm("home");
-    RobotomyRequestForm robotomyForm("target");
-    PresidentialPardonForm pardonForm("criminal");
+    try
+    {
+        Bureaucrat bureaucrat("John ", 11);
+        ShrubberyCreationForm shrubberyForm("julia");
+        RobotomyRequestForm robotomyForm("emrah");
+        PresidentialPardonForm pardonForm("burak");
 
-    bureaucrat.signForm(shrubberyForm);
-    bureaucrat.signForm(robotomyForm);
-    bureaucrat.signForm(pardonForm);
+        bureaucrat.signForm(shrubberyForm);
+        bureaucrat.signForm(robotomyForm);
+        bureaucrat.signForm(pardonForm);
 
-    bureaucrat.executeForm(shrubberyForm);
-    bureaucrat.executeForm(robotomyForm);
-    bureaucrat.executeForm(pardonForm);
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(pardonForm);
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    
     return 0;
 }

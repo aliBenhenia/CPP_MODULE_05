@@ -2,14 +2,14 @@
 
 Bureaucrat :: Bureaucrat()
 {
-    std ::  cout << "default constructor called " << std::endl;
+    // std ::  cout << "default constructor called " << std::endl;
 }
 
 
 Bureaucrat ::  Bureaucrat(const Bureaucrat &obj):name(obj.name)
 {
     this->grade = obj.grade;
-    std ::  cout << "copy constructor called " << std::endl;
+    // std ::  cout << "copy constructor called " << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade_):name(name)
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade_):name(name)
 Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
 {
     this->grade = obj.grade;
-    std::cout << "assignement operator called" << std::endl;
+    // std::cout << "assignement operator called" << std::endl;
     return (*this);
 }
 
@@ -67,5 +67,5 @@ std::ostream & operator<<(std:: ostream & os, const Bureaucrat &obj)
 
 Bureaucrat :: ~Bureaucrat()
 {
-    std ::  cout << "destructor called " << std::endl;
+    // std ::  cout << "destructor called " << std::endl;
 }

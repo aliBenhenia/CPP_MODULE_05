@@ -2,12 +2,12 @@
 #include "AForm.hpp"
 PresidentialPardonForm :: PresidentialPardonForm():AForm(get_target(), 25, 5)
 {
-    std::cout << "default constructor called " << std::endl;
+    // std::cout << "default constructor called " << std::endl;
 }
 PresidentialPardonForm :: PresidentialPardonForm(std::string target):AForm(target, 25, 5){}
 PresidentialPardonForm :: PresidentialPardonForm(const PresidentialPardonForm &obj):AForm(obj)
 {
-    std::cout << "copy constructor called " << std::endl;
+    // std::cout << "copy constructor called " << std::endl;
 }
 PresidentialPardonForm & PresidentialPardonForm::operator =(const PresidentialPardonForm &obj)
 {
@@ -27,5 +27,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 
 PresidentialPardonForm :: ~PresidentialPardonForm()
 {
-    std :: cout << "destructor  called " << std::endl;
+    // std :: cout << "destructor  called " << std::endl;
 }

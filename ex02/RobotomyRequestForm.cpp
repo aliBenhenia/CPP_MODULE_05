@@ -2,7 +2,7 @@
 #include "AForm.hpp"
 RobotomyRequestForm :: RobotomyRequestForm():AForm(get_target(), 72, 45)
 {
-    std::cout << "default constructor called " << std::endl;
+    // std::cout << "default constructor called " << std::endl;
 }
 RobotomyRequestForm :: RobotomyRequestForm(std::string target):AForm(target, 72, 45)
 {
@@ -10,7 +10,7 @@ RobotomyRequestForm :: RobotomyRequestForm(std::string target):AForm(target, 72,
 }
 RobotomyRequestForm :: RobotomyRequestForm(const RobotomyRequestForm &obj):AForm(obj)
 {
-    std::cout << "copy constructor called " << std::endl;
+    // std::cout << "copy constructor called " << std::endl;
 }
 RobotomyRequestForm & RobotomyRequestForm::operator =(const RobotomyRequestForm &obj)
 {
@@ -37,5 +37,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 
 RobotomyRequestForm :: ~RobotomyRequestForm()
 {
-    std::cout << "destructor  called " << std::endl;
+    // std::cout << "destructor  called " << std::endl;
 }
