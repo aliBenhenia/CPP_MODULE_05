@@ -1,7 +1,7 @@
 NAME = fixed
 CC = c++
 RM = rm -f
-CFLAGS =  -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =  main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJ = $(SRC:%.cpp=%.o)
 all : $(NAME)

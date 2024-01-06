@@ -21,7 +21,6 @@ Bureaucrat ::  Bureaucrat(std::string name, int grade):name(name)
 }
 Bureaucrat &Bureaucrat :: operator =(const Bureaucrat &obj)
 {
-    Bureaucrat ob(obj.name, obj.grade);
     this->grade = obj.grade;
     std ::  cout << "copy assignement constructor called " << std::endl;
     return (*this);

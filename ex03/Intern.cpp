@@ -7,11 +7,13 @@ Intern :: Intern()
 
 Intern :: Intern(const Intern &obj)
 {
+    (void)obj;
     std::cout << "copy constructor (Intern)" << std::endl;
 }
 
 Intern &Intern:: operator=(const Intern &obj)
 {
+    (void)obj;
     std::cout << "assignement operator (Intern)" << std::endl;
     return (*this);
 }

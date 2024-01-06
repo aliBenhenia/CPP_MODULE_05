@@ -1,15 +1,15 @@
 #include "Form.hpp"
 
-Form :: Form():target("none"),grade_to_execute(0),grade_to_sign(0)
+Form :: Form():target("none"),grade_to_sign(0),grade_to_execute(0)
 {
      std ::  cout << "default constructor called" << std::endl;
 }
 
-Form :: Form(const Form &obj):target("none"),grade_to_execute(0),grade_to_sign(0)
+Form :: Form(const Form &obj):target(obj.target),grade_to_sign(obj.grade_to_sign),grade_to_execute(obj.grade_to_execute)
 {
      std ::  cout << "copy constructor called" << std::endl;
 }
-Form ::  Form(const std:: string target, const int grade_to_sign, const int grade_to_execute):target(target),grade_to_execute(grade_to_execute),grade_to_sign(grade_to_sign)
+Form ::  Form(const std:: string target, const int grade_to_sign, const int grade_to_execute):target(target),grade_to_sign(grade_to_sign),grade_to_execute(grade_to_execute)
 {
      if (grade_to_execute < 1 || grade_to_sign < 1)
           throw GradeTooHighException();
