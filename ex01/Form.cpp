@@ -2,12 +2,12 @@
 
 Form :: Form():name("default"),is_signed(false),grade_to_sign(1),grade_to_execute(1)
 {
-     // std ::  cout << "default constructor called" << std::endl;
+     
 }
 
 Form :: Form(const Form &obj):name(obj.name),is_signed(obj.is_signed),grade_to_sign(obj.grade_to_sign),grade_to_execute(obj.grade_to_execute)
 {
-     // std ::  cout << "copy constructor called" << std::endl;
+     
 }
 
 Form ::  Form(const std:: string name, const int grade_to_sign, const int grade_to_execute):name(name),is_signed(false),grade_to_sign(grade_to_sign),grade_to_execute(grade_to_execute)
@@ -16,13 +16,13 @@ Form ::  Form(const std:: string name, const int grade_to_sign, const int grade_
           throw GradeTooHighException();
      if (grade_to_execute > 150 || grade_to_sign > 150)
           throw GradeTooLowException();
-     // std::cout << "parameterized constructor called" << std::endl;
+      
 }
 
 Form &Form :: operator =(const Form &obj)
 {
     this->is_signed = obj.is_signed;
-//     std::cout << " assignement constructor called" << std::endl;
+ 
     return (*this);
 }
 
@@ -75,5 +75,5 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 
 Form :: ~Form()
 {
-     // std ::  cout << "destructor called" << std::endl;
+     
 }

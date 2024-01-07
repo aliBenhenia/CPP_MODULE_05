@@ -2,12 +2,12 @@
 
 Form :: Form():target("none"),grade_to_sign(0),grade_to_execute(0)
 {
-     // std ::  cout << "default constructor called" << std::endl;
+      
 }
 
 Form :: Form(const Form &obj):target(obj.target),grade_to_sign(obj.grade_to_sign),grade_to_execute(obj.grade_to_execute)
 {
-     // std ::  cout << "copy constructor called" << std::endl;
+    
 }
 Form ::  Form(const std:: string target, const int grade_to_sign, const int grade_to_execute):target(target),grade_to_sign(grade_to_sign),grade_to_execute(grade_to_execute)
 {
@@ -15,7 +15,7 @@ Form ::  Form(const std:: string target, const int grade_to_sign, const int grad
           throw GradeTooHighException();
      if (grade_to_execute > 150 || grade_to_sign > 150)
           throw GradeTooLowException();
-     // std ::  cout << "parameter constructor called" << std::endl;
+     
 }
 
 
@@ -81,5 +81,5 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 }
 Form :: ~Form()
 {
-     // std ::  cout << "destructor called" << std::endl;
+     
 }

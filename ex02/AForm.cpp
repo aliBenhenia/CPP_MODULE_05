@@ -2,12 +2,12 @@
 
 AForm :: AForm():target("none"),is_signed(false),grade_to_sign(1),grade_to_execute(1)
 {
-     // std ::  cout << "default constructor called" << std::endl;
+      
 }
 
 AForm :: AForm(const AForm &obj):target(obj.target),is_signed(obj.is_signed),grade_to_sign(obj.grade_to_sign),grade_to_execute(obj.grade_to_execute)
 {
-     // std::cout << "copy constructor called" << std::endl;
+      
 }
 
 AForm ::  AForm(const std:: string target, const int grade_to_sign, const int grade_to_execute):target(target),is_signed(false),grade_to_sign(grade_to_sign),grade_to_execute(grade_to_execute)
@@ -16,7 +16,7 @@ AForm ::  AForm(const std:: string target, const int grade_to_sign, const int gr
           throw GradeTooHighException();
      if (grade_to_execute > 150 || grade_to_sign > 150)
           throw GradeTooLowException();
-     // std ::  cout << "parameter constructor called" << std::endl;
+      
 }
 
 const char *AForm::GradeTooHighException:: what() const throw()
@@ -79,5 +79,5 @@ const std::string AForm::get_target()const
 
 AForm :: ~AForm()
 {
-     // std ::  cout << "destructor called" << std::endl;
+      
 }

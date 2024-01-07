@@ -2,7 +2,7 @@
 #include "Form.hpp"
 PresidentialPardonForm :: PresidentialPardonForm():Form(get_target(), 25, 5)
 {
-    // std::cout << "default constructor called " << std::endl;
+    
 }
 PresidentialPardonForm :: PresidentialPardonForm(std::string target):Form(target, 25, 5)
 {
@@ -10,7 +10,7 @@ PresidentialPardonForm :: PresidentialPardonForm(std::string target):Form(target
 }
 PresidentialPardonForm :: PresidentialPardonForm(const PresidentialPardonForm &obj):Form(obj)
 {
-    // std::cout << "copy constructor called " << std::endl;
+     
 }
 PresidentialPardonForm & PresidentialPardonForm::operator =(const PresidentialPardonForm &obj)
 {
@@ -28,5 +28,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 }
 PresidentialPardonForm :: ~PresidentialPardonForm()
 {
-    // std :: cout << "destructor  called " << std::endl;
+    
 }

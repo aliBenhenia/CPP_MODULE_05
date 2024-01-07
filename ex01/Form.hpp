@@ -28,7 +28,7 @@ class Form
         Form(const Form &obj);
         Form(const std::string name, const int grade_to_sign, const int grade_to_execute);
         Form & operator =(const Form &obj);
-        //getters
+ 
         const std::string getName()const;
         bool isSigned()const;
         int get_grade_to_sign()const;
